@@ -1,0 +1,49 @@
+---
+  enum target {
+    _SELF = '_self',
+    _BLANK = '_blank',
+    _PARENT = '_parent',
+    _TOP = '_top',
+    _UNFENCEDTOP = '_unfencedTop'
+  }
+
+  interface Props {
+    textLink: string,
+    targetType?: target,
+    url: string,
+    isButton?: boolean
+  }
+
+  const {textLink, targetType, url, isButton} = Astro.props
+---
+<a target={targetType} href={url} class:list={['link', {button: isButton}]}>
+  {textLink}
+</a>
+
+<style>
+  .link {
+    display: block;
+    color: var(--white);
+    font-size: 1.7rem;
+    font-weight: 700;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .link:hover {
+    background-color: var(--primary-color);
+    color: var(--black);
+  }
+
+  .button {
+    background-color: var(--secondary-color);
+    border-radius: 0.5rem;
+    color: var(--white);
+    font-size: 2rem;
+    margin-top: 3rem;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+  }
+</style>

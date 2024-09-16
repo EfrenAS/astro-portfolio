@@ -1,0 +1,30 @@
+---
+  import Link from './Link.astro'
+---
+
+<div class="background-nav">
+  <nav class="primary-nav container">
+    <Link url='#' textLink='Inicio' />
+    <Link url= '#' textLink='Sobre Mí'/>
+    <Link url='#' textLink='Clientes' />
+    <Link url='#' textLink='Contacto'/>
+  </nav>
+</div>
+<style>
+  .background-nav {
+    background-color: var(--secondary-color);
+  }
+
+  .primary-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* For smartphones */
+  @media (min-width: 480px) {
+    .primary-nav {
+      flex-direction: row;
+      justify-content: space-between;
+     }
+  }
+</style>
